@@ -1,3 +1,3 @@
 # dev_webclient
 
-A web app built using polymer.dart.
+a web app built with dart, using polymer
