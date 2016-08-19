@@ -15,8 +15,8 @@ dependencies:
   firebase:
   dev_appserver:
     git:
-      url: git://github.com/borysn/rvep.git
-      ref: dev_appserver
+      url: git://github.com/rvep/dev_appserver.git
+      ref: master
 
 transformers:
 - polymer:
