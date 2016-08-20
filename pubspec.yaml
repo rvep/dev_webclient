@@ -20,17 +20,17 @@ dependencies:
       ref: master
 
 transformers:
-- polymer:
-    entry_points: web/index.html
-- angular2:
-    platform_directives:
-      - 'package:angular2/common.dart#COMMON_DIRECTIVES'
-    platform_pipes:
-      - 'package:angular2/common.dart#COMMON_PIPES'
-    entry_points: web/main.dart
-- $dart2js:
-    $include: '**/*.bootstrap.initialize.dart'
-    minify: true
-    commandLineOptions:
-      - --trust-type-annotations
-      - --trust-primitives
+  - polymer:
+      entry_points: web/index.html
+  - angular2:
+      platform_directives:
+        - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+      platform_pipes:
+        - 'package:angular2/common.dart#COMMON_PIPES'
+      entry_points: web/main.dart
+  - $dart2js:
+      $include: '**/*.bootstrap.initialize.dart'
+      minify: true
+      commandLineOptions:
+        - --trust-type-annotations
+        - --trust-primitives

@@ -6,7 +6,9 @@ import 'package:angular2/platform/common.dart';
 import 'package:angular2/platform/browser.dart';
 import 'package:angular2/router.dart';
 import 'package:polymer/polymer.dart';
+import 'package:polymer_elements/paper_styles.dart';
 import 'package:polymer_elements/iron_flex_layout_classes.dart';
+import 'package:polymer_elements/typography.dart';
 import 'package:dev_webclient/rvep.dart';
 
 main() async {
