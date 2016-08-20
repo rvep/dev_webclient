@@ -1,7 +1,7 @@
 name: 'dev_webclient'
 version: 0.0.1
-description: A web app built using polymer.dart.
-#author: borysn <email@example.com>
+description: a web app built with dart using angular2/polymer
+author: borysn <xborysn@gmail.com>
 #homepage: https://www.example.com
 
 environment:
@@ -9,10 +9,11 @@ environment:
 
 dependencies:
   browser: ^0.10.0
-  polymer_elements: ^1.0.0-rc.9
-  polymer: ^1.0.0-rc.18
   web_components: ^0.12.3
-  firebase:
+  angular2: 2.0.0-beta.20
+  polymer: ^1.0.0-rc.18
+  polymer_elements: ^1.0.0-rc.9
+  firebase: ^0.6.6+3
   dev_appserver:
     git:
       url: git://github.com/rvep/dev_appserver.git
@@ -21,8 +22,15 @@ dependencies:
 transformers:
 - polymer:
     entry_points: web/index.html
+- angular2:
+    platform_directives:
+      - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+      - 'package:angular2/common.dart#COMMON_PIPES'
+    entry_points: web/main.dart
 - $dart2js:
+    $include: '**/*.bootstrap.initialize.dart'
     minify: true
     commandLineOptions:
-    - --trust-type-annotations
-    - --trust-primitives
+      - --trust-type-annotations
+      - --trust-primitives
