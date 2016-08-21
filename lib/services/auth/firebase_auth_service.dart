@@ -11,13 +11,24 @@ class FirebaseAuthService {
   firebase.GoogleAuthProvider googleAuthProvider;
 
   FirebaseAuthService() {
+    // init firebase
+    firebase.initializeApp(
+      apiKey: "AIzaSyC1aHWikGh18FBBwuVbSGuUu1lQvWCOUnY",
+      authDomain: "rvep-1212.firebaseapp.com",
+      databaseURL: "https://rvep-1212.firebaseio.com",
+      storageBucket: "rvep-1212.appspot.com");
+
+    // init google auth provider
     this.googleAuthProvider = new firebase.GoogleAuthProvider();
-    this.googleAuthProvider.addScope('email profile');
+    this.googleAuthProvider.addScope('https://www.googleapis.com/auth/plus.login');
   }
 
   void signin() {
-    firebase.Auth auth = firebase.auth();
-    auth.signInWithPopup(this.googleAuthProvider);
+    firebase.auth().signInWithPopup(this.googleAuthProvider);
+  }
+
+  void signout() {
+    firebase.auth().signOut();
   }
 
   bool authDataCallback(authData) {
