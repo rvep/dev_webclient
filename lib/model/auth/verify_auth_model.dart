@@ -4,9 +4,13 @@
 library dev_webclient.lib.model.auth.verifyAuthModel;
 
 class VerifyAuthModel {
-  bool isVerified;
+  bool _isVerified;
 
   VerifyAuthModel() {
-    this.isVerified = false;
+    this._isVerified = false;
+  }
+
+  bool isVerified() {
+    return this._isVerified;
   }
 }

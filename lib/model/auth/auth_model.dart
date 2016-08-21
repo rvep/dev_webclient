@@ -4,9 +4,13 @@
 library dev_webclient.lib.model.auth.authModel;
 
 class AuthModel {
-  bool isAuthorized;
+  bool _isAuthorized;
 
   AuthModel () {
-    this.isAuthorized = false;
+    this._isAuthorized = false;
+  }
+
+  bool isAuthorized() {
+    return this._isAuthorized;
   }
 }

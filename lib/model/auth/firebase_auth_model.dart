@@ -4,9 +4,13 @@
 library dev_webclient.lib.model.auth.firebaseAuthModel;
 
 class FirebaseAuthModel {
-  bool isSignedIn;
+  bool _isSignedIn;
 
   FirebaseAuthModel() {
-    this.isSignedIn = false;
+    this._isSignedIn = false;
+  }
+
+  bool isSignedIn() {
+    return this._isSignedIn;
   }
 }
