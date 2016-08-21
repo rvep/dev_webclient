@@ -40,9 +40,14 @@ class AuthService {
 
   void _processAuthChange(bool authState) {
     if (authState) {
+      // proceed to dashboard
       this._router.navigate(['Dashboard']);
     } else {
-      this._router.navigate(['Signin']);
+      // not authorized, go to signin page
+      // check if not on signin page already
+      if (!this._router.isRouteActive(this._router.generate(['Signin']))) {
+        this._router.navigate(['Signin']);
+      }
     }
   }
 }
