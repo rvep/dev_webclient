@@ -29,11 +29,11 @@ class FirebaseAuthService {
     });
   }
 
-  void signin() {
+  void signIn() {
     firebase.auth().signInWithPopup(this.googleAuthProvider);
   }
 
-  void signout() {
+  void signOut() {
     firebase.auth().signOut();
   }
 

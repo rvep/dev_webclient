@@ -1,0 +1,9 @@
+paper-button.custom {
+  background: #00bfa5;
+  color: white;
+  width: 7em
+}
+
+paper-button.custom:hover {
+  background: #80cbc4;
+}
