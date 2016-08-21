@@ -1,11 +1,11 @@
-paper-button.custom:hover {
-  background: #80cbc4;
-}
-
-paper-button.indigo {
+paper-button.custom {
   background: #00bfa5;
   color: white;
-  width: 7em
+  width: 12em
+}
+
+paper-button.custom:hover {
+  background: #80cbc4;
 }
 
 #signin {
