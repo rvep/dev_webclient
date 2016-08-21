@@ -3,4 +3,31 @@
 
 library dev_webclient.lib.services.auth.firebase_auth_service;
 
-class FirebaseAuthService {}
+import 'package:angular2/core.dart';
+import 'package:firebase3/firebase.dart' as firebase;
+import 'package:firebase3/auth.dart';
+
+@Injectable()
+class FirebaseAuthService implements OnInit {
+  GoogleAuthProvider googleAuthProvider;
+
+  FirebaseAuthService() {}
+
+  ngOnInit() {
+    this.googleAuthProvider = new GoogleAuthProvider();
+  }
+
+  void signin() {
+    Auth auth = firebase.auth();
+    auth.signInWithPopup(googleAuthProvider);
+  }
+
+  bool authDataCallback(authData) {
+    if (authData) {
+      print("User " + authData.uid + " logged in");
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

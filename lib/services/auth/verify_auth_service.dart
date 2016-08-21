@@ -3,4 +3,11 @@
 
 library dev_webclient.lib.services.auth.verify_auth_service;
 
-class VerifyAuthService {}
+import 'package:angular2/core.dart';
+
+@Injectable()
+class VerifyAuthService {
+
+  VerifyAuthService() {}
+
+}

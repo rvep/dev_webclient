@@ -3,4 +3,11 @@
 
 library dev_webclient.lib.services.auth.auth_service;
 
-class AuthService {}
+import 'package:angular2/core.dart';
+
+@Injectable()
+class AuthService {
+
+  AuthService() {}
+
+}
