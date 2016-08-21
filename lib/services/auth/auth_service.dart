@@ -9,21 +9,30 @@ import 'package:dev_webclient/model/auth/auth_model.dart';
 
 @Injectable()
 class AuthService {
-  AuthModel authModel;
-  FirebaseAuthService fbAuthService;
+  AuthModel _authModel;
+  FirebaseAuthService _fbAuthService;
 
-  AuthService(FirebaseAuthService this.fbAuthService) {
+  AuthService(FirebaseAuthService this._fbAuthService) {
     // init auth model
-    this.authModel = new AuthModel();
+    this._authModel = new AuthModel();
+
+    // subscribe to firebase auth change stream
+    this._fbAuthService.getAuthStateStream().listen((bool authState) {
+      _processAuthChange(authState);
+    });
   }
 
   void signOut() {
-    this.fbAuthService.signOut();
-    this.authModel.setIsAuthorized(false);
+    this._fbAuthService.signOut();
+    this._authModel.setIsAuthorized(false);
   }
 
   bool isAuthorized() {
-    return this.authModel.isAuthorized();
+    return this._authModel.isAuthorized();
+  }
+
+  void _processAuthChange(bool authState) {
+
   }
 
 }

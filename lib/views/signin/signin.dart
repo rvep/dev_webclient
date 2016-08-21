@@ -5,7 +5,6 @@ library dev_webclient.lib.views.signin;
 
 import 'package:angular2/core.dart';
 import 'package:angular2/common.dart';
-import 'package:angular2/router.dart';
 import 'package:polymer_elements/paper_button.dart';
 import 'package:dev_webclient/services/auth/firebase_auth_service.dart';
 
@@ -13,12 +12,11 @@ import 'package:dev_webclient/services/auth/firebase_auth_service.dart';
   selector: 'signin',
   styleUrls: const ['signin.css'],
   templateUrl: 'signin.html',
-  directives: const [ROUTER_DIRECTIVES, CORE_DIRECTIVES])
+  directives: const [CORE_DIRECTIVES])
 class Signin {
   FirebaseAuthService fbAuthService;
-  Router router;
 
-  Signin(FirebaseAuthService this.fbAuthService, Router this.router) {}
+  Signin(FirebaseAuthService this.fbAuthService) {}
 
   void signIn() {
     this.fbAuthService.signIn();
