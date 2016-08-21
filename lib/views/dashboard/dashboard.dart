@@ -11,8 +11,7 @@ import 'package:dev_webclient/services/auth/auth_service.dart';
 @Component(
   selector: 'dashboard',
   styleUrls: const ['dashboard.css'],
-  templateUrl: 'dashboard.html',
-  directives: const [ROUTER_DIRECTIVES])
+  templateUrl: 'dashboard.html')
 class Dashboard implements OnInit {
   Router _router;
   AuthService _authService;
