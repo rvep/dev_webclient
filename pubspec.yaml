@@ -13,7 +13,7 @@ dependencies:
   angular2: 2.0.0-beta.20
   polymer: ^1.0.0-rc.18
   polymer_elements: ^1.0.0-rc.9
-  firebase: ^0.6.6+3
+  firebase3: ^0.1.0
   dev_appserver:
     git:
       url: git://github.com/rvep/dev_appserver.git
@@ -23,6 +23,8 @@ transformers:
   - polymer:
       entry_points: web/index.html
   - angular2:
+      resolved_identifiers:
+        firebase: 'package:firebase3/firebase.dart'
       platform_directives:
         - 'package:angular2/common.dart#COMMON_DIRECTIVES'
       platform_pipes:
