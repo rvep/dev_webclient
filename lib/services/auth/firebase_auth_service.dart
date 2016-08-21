@@ -5,7 +5,7 @@ library dev_webclient.lib.services.auth.firebase_auth_service;
 
 import 'package:angular2/core.dart';
 import 'package:firebase3/firebase.dart' as firebase;
-import 'package:firebase3/auth.dart';
+import 'package:firebase3/src/auth.dart';
 
 @Injectable()
 class FirebaseAuthService implements OnInit {
@@ -18,7 +18,7 @@ class FirebaseAuthService implements OnInit {
   }
 
   void signin() {
-    Auth auth = firebase.auth();
+    firebase.Auth auth = firebase.auth();
     auth.signInWithPopup(googleAuthProvider);
   }
 
