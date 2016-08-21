@@ -13,4 +13,8 @@ class FirebaseAuthModel {
   bool isSignedIn() {
     return this._isSignedIn;
   }
+
+  void setIsSignedIn(bool isSignedIn) {
+    this._isSignedIn = isSignedIn;
+  }
 }

@@ -13,4 +13,8 @@ class VerifyAuthModel {
   bool isVerified() {
     return this._isVerified;
   }
+
+  void setIsVerified(bool isVerified) {
+    this._isVerified = isVerified;
+  }
 }

@@ -13,4 +13,8 @@ class AuthModel {
   bool isAuthorized() {
     return this._isAuthorized;
   }
+
+  void setIsAuthorized(bool isAuthorized) {
+    this._isAuthorized = isAuthorized;
+  }
 }
