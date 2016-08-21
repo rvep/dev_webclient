@@ -39,6 +39,10 @@ class AuthService {
   }
 
   void _processAuthChange(bool authState) {
+    // update auth model
+    this._authModel.setIsAuthorized(authState);
+
+    // navigate on state change
     if (authState) {
       // proceed to dashboard
       this._router.navigate(['Dashboard']);
