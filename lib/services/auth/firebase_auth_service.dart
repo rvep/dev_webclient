@@ -5,21 +5,19 @@ library dev_webclient.lib.services.auth.firebase_auth_service;
 
 import 'package:angular2/core.dart';
 import 'package:firebase3/firebase.dart' as firebase;
-import 'package:firebase3/src/auth.dart';
 
 @Injectable()
-class FirebaseAuthService implements OnInit {
-  GoogleAuthProvider googleAuthProvider;
+class FirebaseAuthService {
+  firebase.GoogleAuthProvider googleAuthProvider;
 
-  FirebaseAuthService() {}
-
-  ngOnInit() {
-    this.googleAuthProvider = new GoogleAuthProvider();
+  FirebaseAuthService() {
+    this.googleAuthProvider = new firebase.GoogleAuthProvider();
+    this.googleAuthProvider.addScope('email profile');
   }
 
   void signin() {
     firebase.Auth auth = firebase.auth();
-    auth.signInWithPopup(googleAuthProvider);
+    auth.signInWithPopup(this.googleAuthProvider);
   }
 
   bool authDataCallback(authData) {
