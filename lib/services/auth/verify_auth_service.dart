@@ -3,11 +3,16 @@
 
 library dev_webclient.lib.services.auth.verify_auth_service;
 
+import 'dart:async';
 import 'package:angular2/core.dart';
 import 'package:dev_webclient/model/auth/verify_auth_model.dart';
+import 'package:dev_appserver/common/auth/auth_token.dart';
 
 @Injectable()
 class VerifyAuthService {
+  Stream<VerifyAuthModel> _verifyState;
+  StreamController _verifyStateController;
+
   VerifyAuthModel _verifyAuthModel;
 
   VerifyAuthService() {
@@ -16,6 +21,10 @@ class VerifyAuthService {
 
   bool isVerified() {
     return this._verifyAuthModel.isVerified();
+  }
+
+  void verifyAuthToken(AuthToken authToken) {
+
   }
 
 }
