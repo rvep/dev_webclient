@@ -1,7 +1,7 @@
 // Copyright (c) 2016, borysn. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-library dev_webclient.lib.views.dashboard;
+library views.dashboard;
 
 import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
