@@ -7,6 +7,7 @@ import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
 import 'package:dev_webclient/services/auth/firebase_auth_service.dart';
 import 'package:dev_webclient/model/auth/auth_model.dart';
+import 'package:dev_webclient/model/auth/firebase_auth_model.dart';
 
 @Injectable()
 class AuthService {
@@ -19,8 +20,7 @@ class AuthService {
     this._authModel = new AuthModel();
 
     // subscribe to firebase auth change stream
-    this._fbAuthService.getAuthStateStream().listen((bool authState) {
-      print('firebaseAuthStateChange: ' + authState.toString());
+    this._fbAuthService.getAuthStateStream().listen((FirebaseAuthModel authState) {
       _processAuthChange(authState);
     });
   }
@@ -38,12 +38,12 @@ class AuthService {
     return this._authModel.isAuthorized();
   }
 
-  void _processAuthChange(bool authState) {
+  void _processAuthChange(FirebaseAuthModel authState) {
     // update auth model
-    this._authModel.setIsAuthorized(authState);
+    this._authModel.setIsAuthorized(authState.isSignedIn());
 
     // navigate on state change
-    if (authState) {
+    if (authState.isSignedIn()) {
       // proceed to dashboard
       this._router.navigate(['Dashboard']);
     } else {

@@ -10,7 +10,7 @@ import 'package:dev_webclient/model/auth/firebase_auth_model.dart';
 
 @Injectable()
 class FirebaseAuthService {
-  Stream<bool> _authState;
+  Stream<FirebaseAuthModel> _authState;
   StreamController _authStateController;
   FirebaseAuthModel _fbAuthModel;
   firebase.GoogleAuthProvider _googleAuthProvider;
@@ -52,19 +52,12 @@ class FirebaseAuthService {
     return this._fbAuthModel.isSignedIn();
   }
 
-  Stream<bool> getAuthStateStream() {
+  Stream<FirebaseAuthModel> getAuthStateStream() {
     return this._authState;
   }
 
   void _processAuthChange(firebase.User user) {
-    if (user != null) {
-      print('user authenticated');
-      this._fbAuthModel.setIsSignedIn(true);
-      this._authStateController.add(true);
-    } else {
-      print('user unauthenticated');
-      this._authStateController.add(false);
-      this._fbAuthModel.setIsSignedIn(false);
-    }
+    this._fbAuthModel.setIsSignedIn(user == null ? false : true);
+    this._authStateController.add(this._fbAuthModel);
   }
 }
