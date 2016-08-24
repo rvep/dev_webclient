@@ -6,7 +6,7 @@ library services.auth.verify_auth_service;
 import 'dart:async';
 import 'package:angular2/core.dart';
 import 'package:dev_webclient/model/auth/verify_auth_model.dart';
-import 'package:dev_appserver/common/auth/auth_token.dart';
+import 'package:dev_appserver/server/authverifyapi.dart';
 
 @Injectable()
 class VerifyAuthService {
@@ -23,7 +23,7 @@ class VerifyAuthService {
     return this._verifyAuthModel.isVerified();
   }
 
-  void verifyAuthToken(AuthToken authToken) {
+  void verifyAuthToken(AuthVerifyRequest request) {
 
   }
 
